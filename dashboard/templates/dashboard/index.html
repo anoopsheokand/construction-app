@@ -1,1 +1,203 @@
 {% extends 'dashboard_base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card dashboard-hero">
+            <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">home_work</i>
+                </div>
+                <h3 class="card-title">Construction Management Hub</h3>
+                <p class="card-category">
+                    Keep every stakeholder aligned with live project status, financial visibility, and field updates.
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="row dashboard-quick-actions">
+                    <div class="col-md-3">
+                        <a href="{% url 'dashboard:project-list' %}" class="btn btn-info btn-block">
+                            <i class="material-icons">business</i> View Projects
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{% url 'dashboard:project-list' %}" class="btn btn-outline-info btn-block">
+                            <i class="material-icons">insights</i> Progress Reports
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{% url 'dashboard:project-list' %}" class="btn btn-outline-info btn-block">
+                            <i class="material-icons">payments</i> Payment Logs
+                        </a>
+                    </div>
+                    {% if user.is_project_admin %}
+                    <div class="col-md-3">
+                        <a href="{% url 'dashboard:project-create' %}" class="btn btn-info btn-block">
+                            <i class="material-icons">add_circle</i> New Project
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="row dashboard-metrics">
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <p class="metric-label">Active Projects</p>
+                            <h2 class="metric-value text-info">12</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <p class="metric-label">Open RFIs</p>
+                            <h2 class="metric-value text-warning">7</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <p class="metric-label">Change Orders</p>
+                            <h2 class="metric-value text-rose">4</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="metric-card">
+                            <p class="metric-label">Upcoming Inspections</p>
+                            <h2 class="metric-value text-success">3</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-md-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-primary card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">track_changes</i>
+                </div>
+                <p class="card-category">Project Pipeline</p>
+                <h3 class="card-title">Active & Upcoming</h3>
+            </div>
+            <div class="card-body">
+                <p>Monitor bids, awarded work, and milestones across every active job site.</p>
+                <p class="text-muted">Assign PMs and keep stakeholders aligned from award through closeout.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-rose card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">event_note</i>
+                </div>
+                <p class="card-category">Daily Logs</p>
+                <h3 class="card-title">Field Updates</h3>
+            </div>
+            <div class="card-body">
+                <p>Capture labor, equipment usage, and site conditions with photo-ready reports.</p>
+                <p class="text-muted">Sync entries with the office team before end-of-day reports.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">timeline</i>
+                </div>
+                <p class="card-category">Schedules</p>
+                <h3 class="card-title">Critical Paths</h3>
+            </div>
+            <div class="card-body">
+                <p>Sync your schedule with subcontractors and automate alerts for slipping tasks.</p>
+                <p class="text-muted">Surface the next critical milestones every morning.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-md-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">account_balance</i>
+                </div>
+                <p class="card-category">Financials</p>
+                <h3 class="card-title">Budget Health</h3>
+            </div>
+            <div class="card-body">
+                <p>Track contracts, change orders, and payments from one consolidated dashboard.</p>
+                <p class="text-muted">Highlight overages early to protect project margin.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">folder</i>
+                </div>
+                <p class="card-category">Documents</p>
+                <h3 class="card-title">RFIs & Submittals</h3>
+            </div>
+            <div class="card-body">
+                <p>Centralize drawings, approvals, and specs so teams always see the latest version.</p>
+                <p class="text-muted">Reduce rework by syncing files directly to field devices.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card card-stats">
+            <div class="card-header card-header-danger card-header-icon">
+                <div class="card-icon">
+                    <i class="material-icons">people</i>
+                </div>
+                <p class="card-category">Client Portal</p>
+                <h3 class="card-title">Shared Visibility</h3>
+            </div>
+            <div class="card-body">
+                <p>Give owners instant access to progress photos, budgets, and decisions.</p>
+                <p class="text-muted">Share status updates without extra meetings or email chains.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">Next Best Actions</h4>
+                <p class="card-category">Keep jobs moving with a simple weekly checklist.</p>
+            </div>
+            <div class="card-body">
+                <ul class="dashboard-checklist">
+                    <li>Confirm upcoming inspections and upload any required permits.</li>
+                    <li>Review open change orders and notify owners of budget impacts.</li>
+                    <li>Send daily logs to subcontractors for sign-off.</li>
+                    <li>Archive completed milestones to share progress with stakeholders.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header card-header-rose">
+                <h4 class="card-title">Team Activity</h4>
+                <p class="card-category">Latest updates from the field.</p>
+            </div>
+            <div class="card-body">
+                <div class="dashboard-activity">
+                    <p><strong>3:</strong> New daily logs awaiting review.</p>
+                    <p><strong>5:</strong> Outstanding RFIs across active jobs.</p>
+                    <p><strong>2:</strong> Upcoming milestones due this week.</p>
+                    <p><strong>8:</strong> Documents recently uploaded.</p>
+                    <p><strong>1:</strong> Payment application pending approval.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

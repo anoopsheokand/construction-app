@@ -15,3 +15,53 @@
 .fieldset-wrapper legend {
     margin-bottom: 1em;
 }
+.dashboard-hero .card-title {
+    margin-bottom: 0.35rem;
+}
+
+.dashboard-quick-actions .btn {
+    margin-bottom: 0.75rem;
+}
+
+.dashboard-metrics {
+    margin-top: 1.5rem;
+}
+
+.dashboard-metrics .metric-card {
+    background: #f7f9fc;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: left;
+}
+
+.dashboard-metrics .metric-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #718096;
+    margin-bottom: 0.25rem;
+}
+
+.dashboard-metrics .metric-value {
+    margin: 0;
+    font-weight: 600;
+}
+
+.dashboard-checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.dashboard-checklist li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-checklist li:last-child {
+    border-bottom: 0;
+}
+
+.dashboard-activity p {
+    margin-bottom: 0.75rem;
+}
